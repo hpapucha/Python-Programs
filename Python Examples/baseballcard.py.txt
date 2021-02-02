@@ -1,0 +1,10 @@
+# Baseball Example
+
+class BaseballCard:
+	
+    def __init__(self, ln, pos):
+        self.last_name = ln
+        self.position = pos
+	
+    def __str__(self):
+        return self.last_name + " " + self.position

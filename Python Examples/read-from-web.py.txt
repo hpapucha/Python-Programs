@@ -1,0 +1,29 @@
+﻿from urllib.request import urlopen
+import sys
+
+target_currency = input("Enter target currency: ")
+url = "http://facweb.cdm.depaul.edu/sjost/it212/rates.txt"
+response = urlopen(url)
+line = str(response.read( ))
+
+# Remove first two characters and last character from line
+# This is called slicing
+line = line[2:-1]
+
+items = line.split(";")
+exchange_rate = 0.0
+for item in items:
+    fields = item.split(",")
+    code = fields[0].strip( )
+    rate = float(fields[1].strip( ))
+    if target_currency == code:
+        exchange_rate = rate
+        break;
+    
+if exchange_rate == 0.0:
+    print("Currency not on website.")
+    sys.exit( )
+
+source_amount = 1000.0
+target_amount = source_amount * exchange_rate
+print("Target amount: " + str(target_amount))

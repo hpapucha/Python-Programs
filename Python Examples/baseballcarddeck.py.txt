@@ -1,0 +1,53 @@
+# Baseball Example
+
+from baseballcard import BaseballCard
+import random
+class BaseballCardDeck:
+	
+    def __init__(self):
+        self.cards = [ ]
+
+        # Define array of strings for Cubs
+        # roster.
+        arr = [["Arrieta",  "P" ], \
+               ["Montero",  "C" ], \
+               ["Rizzo",    "1B"], \
+               ["Castro",   "2B"], \
+               ["Russel",   "SS"], \
+               ["Bryant",   "B" ], \
+               ["Schwarber","LF"], \
+               ["Fowler",   "CF"], \
+               ["Coglin",   "RF"]]
+    
+        # Populate BaseballCardDeck object with
+        # arr array
+        for player in arr:
+            ln = player[0]
+            pos = player[1]
+            card = BaseballCard(ln, pos)
+            self.add_to_bottom(card)
+	
+    # Add a card to bottom of deck
+    def add_to_bottom(self, the_card):
+        self.cards.insert(0, the_card)
+
+
+    # Convert deck to string
+    def __str__(self):
+        output = ""
+        for card in self.cards:
+            output += str(card) + "\n"
+        return output
+	
+    # Shuffle deck
+    def shuffle_cards(self):
+        random.shuffle(self.cards)
+	
+    # Take card from top of deck.	
+    def select_from_top(self):
+        return self.cards.pop( )
+	
+    # Return count of cards in deck
+    def count(self):
+        return len(self.cards)
+  

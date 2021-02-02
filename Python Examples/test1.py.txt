@@ -1,0 +1,19 @@
+# Baseball Example
+
+from baseballcard import BaseballCard
+from baseballcarddeck import BaseballCardDeck
+
+card = BaseballCard("Arrieta" ,"P")
+print(card, "\n")
+
+deck = BaseballCardDeck( )
+print(deck, "\n")
+
+deck.shuffle_cards( )
+print(deck.count)
+print(deck, "\n")
+
+c = deck.select_from_top( )
+print( c, "\n")
+print(deck)
+print(deck.count( ))
